@@ -12,17 +12,17 @@ public class Sorter<T> {
         sorters.put(field, comparator);
         return this;
     }
+    
+    public Comparator<T> sortBy(SortParams sorting){
+        return sortBy(sorting.getSortBy(), sorting.getDir());
+    }
 
-    public Comparator<T> sortBy(String sortBy, String direction){
+    private Comparator<T> sortBy(String sortBy, String direction){
         Comparator<T> noSort = (a, b) -> 0;
 
         if(direction == null || direction.equalsIgnoreCase("asc"))
             return sorters.getOrDefault(sortBy, noSort);
         else
             return sorters.getOrDefault(sortBy, noSort).reversed();
-    }
-
-    public Comparator<T> sortBy(SortParams sorting){
-        return sortBy(sorting.getSortBy(), sorting.getDir());
     }
 }

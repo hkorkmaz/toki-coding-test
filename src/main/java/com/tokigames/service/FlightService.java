@@ -32,7 +32,9 @@ public class FlightService {
     public FlightService() {
         this.flightSorter = new Sorter<Flight>()
                 .add("arrival", Comparator.comparing(Flight::getArrival))
-                .add("departure", Comparator.comparing(Flight::getDeparture));
+                .add("departure", Comparator.comparing(Flight::getDeparture))
+                .add("departureTime", Comparator.comparing(Flight::getDepartureTime))
+                .add("arrivalTime", Comparator.comparing(Flight::getArrivalTime));
 
         this.flightFilter = new Filter<Flight>()
                 .add("arrival", Flight::getArrival)

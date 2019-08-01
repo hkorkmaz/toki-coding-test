@@ -16,12 +16,11 @@ public class FlightConverters {
     };
 
 
-    public static Function<BusinessFlight, Flight> businessFlightToFlight = businessFlight -> {
-        return Flight.builder()
-                .departure(businessFlight.getDeparture())
-                .arrival(businessFlight.getArrival())
-                .departureTime(businessFlight.getDepartureTime())
-                .arrivalTime(businessFlight.getArrivalTime())
-                .build();
-    };
+    public static Function<BusinessFlight, Flight> businessFlightToFlight = businessFlight ->
+        Flight.builder()
+            .departure(businessFlight.getDeparture())
+            .arrival(businessFlight.getArrival())
+            .departureTime(businessFlight.getDepartureTime())
+            .arrivalTime(businessFlight.getArrivalTime())
+            .build();
 }

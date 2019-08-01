@@ -11,7 +11,7 @@ public class FlightConverterTest {
 
     @Test
     public void test_businessflight_convertion() {
-        BusinessFlight b1 = new BusinessFlight("D1", "A1", 999L, 1000L);
+        BusinessFlight b1 = BusinessFlight.builder().departure("D1").arrival("A1").arrivalTime(999L).departureTime(1000L).build();
         Flight result = FlightConverters.businessFlightToFlight.apply(b1);
 
         assertEquals("D1", result.getDeparture());
@@ -22,7 +22,7 @@ public class FlightConverterTest {
 
     @Test
     public void test_cheapflight_convertion() {
-        CheapFlight c1 = new CheapFlight("D1-A1", 999L, 1000L);
+        CheapFlight c1 = CheapFlight.builder().route("D1-A1").arrival(999L).departure(1000L).build();
         Flight result = FlightConverters.cheapFlightToFlight.apply(c1);
 
         assertEquals("D1", result.getDeparture());
