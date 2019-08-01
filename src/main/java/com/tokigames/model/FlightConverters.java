@@ -5,23 +5,23 @@ import java.util.function.Function;
 public class FlightConverters {
 
     public static Function<CheapFlight, Flight> cheapFlightToFlight = cheapFlight -> {
-        Flight flight = new Flight();
         String[] route = cheapFlight.getRoute().split("-");
 
-        flight.setArrivalTime(cheapFlight.getArrival());
-        flight.setDepartureTime(cheapFlight.getDeparture());
-        flight.setArrival(route[0]);
-        flight.setDeparture(route[1]);
-        return flight;
+        return Flight.builder()
+                .departure(route[0])
+                .arrival(route[1])
+                .departureTime(cheapFlight.getDeparture())
+                .arrivalTime(cheapFlight.getArrival())
+                .build();
     };
 
 
     public static Function<BusinessFlight, Flight> businessFlightToFlight = businessFlight -> {
-        Flight flight = new Flight();
-        flight.setDeparture(businessFlight.getDeparture());
-        flight.setArrival(businessFlight.getArrival());
-        flight.setDepartureTime(businessFlight.getDepartureTime());
-        flight.setArrivalTime(businessFlight.getArrivalTime());
-        return flight;
+        return Flight.builder()
+                .departure(businessFlight.getDeparture())
+                .arrival(businessFlight.getArrival())
+                .departureTime(businessFlight.getDepartureTime())
+                .arrivalTime(businessFlight.getArrivalTime())
+                .build();
     };
 }
