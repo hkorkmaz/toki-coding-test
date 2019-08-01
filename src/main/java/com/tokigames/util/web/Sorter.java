@@ -3,13 +3,14 @@ package com.tokigames.util.web;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 public class Sorter<T> {
 
     private Map<String, Comparator<T>> sorters = new HashMap<>();
 
-    public Sorter<T> add(String field, Comparator<T> comparator){
-        sorters.put(field, comparator);
+    public <U extends Comparable<U>> Sorter<T> add(String field, Function<T, U> extractor){
+        sorters.put(field, Comparator.comparing(extractor));
         return this;
     }
     

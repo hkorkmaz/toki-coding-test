@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -31,10 +30,10 @@ public class FlightService {
 
     public FlightService() {
         this.flightSorter = new Sorter<Flight>()
-                .add("arrival", Comparator.comparing(Flight::getArrival))
-                .add("departure", Comparator.comparing(Flight::getDeparture))
-                .add("departureTime", Comparator.comparing(Flight::getDepartureTime))
-                .add("arrivalTime", Comparator.comparing(Flight::getArrivalTime));
+                .add("arrival", Flight::getArrival)
+                .add("departure", Flight::getDeparture)
+                .add("departureTime", Flight::getDepartureTime)
+                .add("arrivalTime", Flight::getArrivalTime);
 
         this.flightFilter = new Filter<Flight>()
                 .add("arrival", Flight::getArrival)

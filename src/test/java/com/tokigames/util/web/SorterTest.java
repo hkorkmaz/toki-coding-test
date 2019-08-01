@@ -21,8 +21,8 @@ public class SorterTest {
 
         Sorter<MyClass> sorter = new Sorter<>();
 
-        sorter.add("prop1", Comparator.comparing(MyClass::getProp1))
-              .add("prop2", Comparator.comparing(MyClass::getProp2));
+        sorter.add("prop1", MyClass::getProp1)
+              .add("prop2", MyClass::getProp2);
 
         MyClass m1 = new MyClass("Class1-Prop1", "Class1-Prop2");
         MyClass m2 = new MyClass("Class2-Prop1", "Class2-Prop2");
@@ -44,8 +44,8 @@ public class SorterTest {
     public void test_invalid_sorting() {
         Sorter<MyClass> sorter = new Sorter<>();
 
-        sorter.add("prop1", Comparator.comparing(MyClass::getProp1))
-                .add("prop2", Comparator.comparing(MyClass::getProp2));
+        sorter.add("prop1", MyClass::getProp1)
+                .add("prop2", MyClass::getProp2);
 
         MyClass m1 = new MyClass("Class1-Prop1", "Class1-Prop2");
         MyClass m2 = new MyClass("Class2-Prop1", "Class2-Prop2");
