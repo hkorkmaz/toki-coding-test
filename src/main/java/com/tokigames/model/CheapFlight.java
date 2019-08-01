@@ -9,6 +9,6 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CheapFlight {
     private String route;
-    private Long departure;
     private Long arrival;
+    private Long departure;
 }
