@@ -48,13 +48,11 @@ public class FlightService {
         Stream<Flight> cheapFlights = cheapFlightsF.join().stream().map(cheapFlightToFlight);
         Stream<Flight> businessFlights = businessFlightsF.join().stream().map(businessFlightToFlight);
 
-        List<Flight> result = Stream.concat(cheapFlights, businessFlights)
+        return Stream.concat(cheapFlights, businessFlights)
                 .filter(flightFilter.filterBy(filterParams))
                 .sorted(flightSorter.sortBy(sortParams))
                 .skip(pageParams.skip())
                 .limit(pageParams.limit())
                 .collect(Collectors.toList());
-
-        return result;
     }
 }

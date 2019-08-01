@@ -1,14 +1,11 @@
 package com.tokigames.util.web;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.tokigames.model.Flight;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.util.StringUtils;
 
 import java.util.Optional;
-import java.util.function.Predicate;
 
 @Data
 @AllArgsConstructor

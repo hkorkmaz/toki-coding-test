@@ -23,10 +23,7 @@ public class FlightController {
 
     @RequestMapping("/api/flights")
     ResponseEntity<Result> flights(SortParams sortParams, PageParams pageParams, FilterParams filterParams) {
-        long start = System.currentTimeMillis();
-
         List<Flight> flights = flightService.getFlights(sortParams, pageParams, filterParams);
-        log.info("Elapsed time: " + (System.currentTimeMillis() - start));
 
         return Result.Success()
                 .add("sorting", sortParams)
