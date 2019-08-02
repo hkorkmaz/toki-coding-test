@@ -37,7 +37,9 @@ public class FlightService {
 
         this.flightFilter = new Filter<Flight>()
                 .add("arrival", Flight::getArrival)
-                .add("departure", Flight::getDeparture);
+                .add("departure", Flight::getDeparture)
+                .add("departureTime", Flight::getDepartureTime)
+                .add("arrivalTime", Flight::getArrivalTime);
     }
 
     public List<Flight> getFlights(SortParams sortParams, PageParams pageParams, FilterParams filterParams) {

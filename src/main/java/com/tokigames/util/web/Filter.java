@@ -22,7 +22,7 @@ public class Filter<T> {
 
         if (filterName != null && filterValue != null && filters.containsKey(filterName)) {
             Function<T, ?> filter = filters.get(filterName);
-            return (obj) -> filter.apply(obj).equals(filterValue);
+            return (obj) -> filter.apply(obj).toString().equals(filterValue);
         }
 
         return noFilter;
