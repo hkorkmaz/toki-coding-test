@@ -13,7 +13,7 @@ GET     /api/flights
 Params
 ------------------
 filterBy [optional] -> Parameter for filtering, 'name:value' pair    
-                       Valid values: [arrival:XXXX, departure:YYYY]
+                       Valid values: [arrival:XXXX, departure:XXXX, arrivalTime:XXX, departureTime:XXXX]
 sortBy   [optional] -> Sort field. 
                        Valid values: [arrival, departure, arrivalTime, departureTime]
 dir      [optional] -> Sort direction
